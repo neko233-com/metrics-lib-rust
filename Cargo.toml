@@ -1,0 +1,32 @@
+[package]
+name = "metrics233"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+description = "Bounded, explicitly managed Rust metrics reporting SDK for metrics233-server"
+license = "MIT"
+repository = "https://github.com/neko233-com/metrics-lib-rust"
+readme = "README.md"
+keywords = ["metrics", "monitoring", "prometheus", "telemetry"]
+categories = ["api-bindings", "development-tools::profiling"]
+include = ["src/**", "tests/**", "examples/**", "README.md", "LICENSE", "Cargo.toml", "Cargo.lock"]
+
+[lib]
+name = "metrics233"
+
+[features]
+real-server-tests = []
+
+[dependencies]
+bytes = "1"
+httpdate = "1"
+reqwest = { version = "0.12.28", default-features = false, features = ["rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt", "sync", "time", "macros"] }
+
+[dev-dependencies]
+rcgen = "0.13"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+tokio = { version = "1", features = ["rt-multi-thread", "net", "io-util"] }
+
