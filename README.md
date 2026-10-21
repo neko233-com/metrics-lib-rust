@@ -2,12 +2,11 @@
 
 Bounded Rust instrumentation for [metrics233-server](https://github.com/neko233-com/metrics233-server), using its native `POST /api/v1/ingest` JSON protocol. Package and library name: `metrics233`. Rust 1.88+, Tokio runtime. The transport reuses reqwest 0.12 and rustls already present in the Rust game gateway; it adds no separate HTTP/TLS stack, native OpenSSL, exporter, tracing framework or automatic host collector.
 
-The v0.1.0 Git release is available. crates.io publication is still pending because registry authentication was rejected; use this fixed Git dependency until the registry package is actually published:
+Install the `metrics233` crate from crates.io:
 
-```toml
-[dependencies]
-metrics233 = { git = "https://github.com/neko233-com/metrics-lib-rust", rev = "bda4716538a366379f69300cb816e272f1db11de" }
-tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+```sh
+cargo add metrics233@0.1.0
+cargo add tokio --features rt-multi-thread,macros
 ```
 
 ```rust,no_run
